@@ -22,7 +22,3 @@ func _process(delta):
 func _on_cameras_pressed():
 	pass # Replace with function body.
 
-func _process(delta):
-	if Input.is_key_pressed(KEY_0):
-		rotation.y += 0.1
-
