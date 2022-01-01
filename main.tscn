@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Материал.material" type="Material" id=1]
 [ext_resource path="res://scenes/komnata.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Материал.material" type="Material" id=3]
 [ext_resource path="res://scenes/01___Default.material" type="Material" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
+[ext_resource path="res://camerasMenu.gd" type="Script" id=6]
 
 [sub_resource type="Environment" id=1]
 
@@ -53,24 +54,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="right" type="Button" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 939.0
-margin_top = 1.0
-margin_bottom = -1.0
-rect_pivot_offset = Vector2( -813, 100 )
+[node name="cameras" type="Button" parent="Control"]
+margin_left = 908.0
+margin_top = 533.0
+margin_right = 995.0
+margin_bottom = 580.0
+text = "CAMERA"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="left" type="Button" parent="Control"]
-anchor_right = 0.083
-anchor_bottom = 1.0
-margin_right = 0.00799561
-rect_pivot_offset = Vector2( -813, 100 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CamerasMenu" type="WindowDialog" parent="Control"]
+visible = true
+anchor_left = 0.091
+anchor_top = 0.19
+anchor_right = 0.713
+anchor_bottom = 0.823
+margin_left = -0.184006
+margin_top = -7.62939e-06
+margin_right = -0.112061
+margin_bottom = 0.199982
+script = ExtResource( 6 )
 
-[connection signal="button_down" from="Control/right" to="Camera" method="_on_right_button_down"]
+[connection signal="pressed" from="Control/cameras" to="Control/CamerasMenu" method="_on_cameras_pressed"]
