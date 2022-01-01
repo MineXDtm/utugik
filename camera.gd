@@ -18,7 +18,5 @@ func _process(delta):
 	else:
 		get_parent().get_node("MeshInstance").visible=true
 
-
-func _on_cameras_pressed():
-	pass # Replace with function body.
-
+func _onready():
+	get_tree().change_scene("res://Control.tscn")
