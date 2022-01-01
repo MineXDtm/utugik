@@ -10,13 +10,13 @@ func _process(delta):
 		rotation.y = -2.9
 	if rotation.y > -0.15:
 		rotation.y = -0.15
-
-	if rotation.y < -2.4:
-		get_parent().get_node("Control/cameras").visible=false
-	elif rotation.y > -0.7:
-		get_parent().get_node("Control/cameras").visible=false
+	print(rotation)
+	if rotation.y < -1.8:
+		get_parent().get_node("MeshInstance").visible=false
+	elif rotation.y > -1.4:
+		get_parent().get_node("MeshInstance").visible=false
 	else:
-		get_parent().get_node("Control/cameras").visible=true
+		get_parent().get_node("MeshInstance").visible=true
 
 
 func _on_cameras_pressed():
