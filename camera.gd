@@ -10,13 +10,15 @@ func _process(delta):
 		rotation.y = -2.9
 	if rotation.y > -0.15:
 		rotation.y = -0.15
-	print(rotation)
-	if rotation.y < -1.8:
+	if rotation.y < -2.3:
 		get_parent().get_node("MeshInstance").visible=false
-	elif rotation.y > -1.4:
+	elif rotation.y > -2:
 		get_parent().get_node("MeshInstance").visible=false
 	else:
 		get_parent().get_node("MeshInstance").visible=true
 
-func _onready():
-	get_tree().change_scene("res://Control.tscn")
+
+func _on_Area_input_event(camera, event, position, normal, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed == true:
+			print("work")
