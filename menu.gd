@@ -36,3 +36,7 @@ func _on_Button3_pressed():
 func _on_Button4_pressed():
 	$intro/CenterContainer/Label.text = "вы играть не играя"
 	$intro/AnimationPlayer.play("intro")
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://main.tscn")
