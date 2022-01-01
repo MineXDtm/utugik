@@ -1,11 +1,5 @@
 extends Camera
 
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		rotation.y += 0.01
@@ -27,3 +21,8 @@ func _process(delta):
 
 func _on_cameras_pressed():
 	pass # Replace with function body.
+
+func _process(delta):
+	if Input.is_key_pressed(KEY_0):
+		rotation.y += 0.1
+
