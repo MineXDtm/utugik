@@ -5,7 +5,7 @@
 [ext_resource path="res://menu.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 5
+flags = 4
 atlas = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
