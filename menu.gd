@@ -15,6 +15,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _exit(exit):
+	get_tree().quit()
+
 
 func _on_Timer_timeout():
 	$bg.rect_scale.x =2 
@@ -32,6 +35,7 @@ func _on_Button2_pressed():
 func _on_Button3_pressed():
 	$intro/CenterContainer/Label.text = "вы не играть"
 	$intro/AnimationPlayer.play("intro")
+	$intro/AnimationPlayer.connect("animation_finished", self,"_exit")
 
 func _on_Button4_pressed():
 	$intro/CenterContainer/Label.text = "вы играть не играя"
