@@ -1,7 +1,5 @@
 extends Camera
 
-var isOn = false
-
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		rotation.y += 0.01
@@ -21,14 +19,8 @@ func _process(delta):
 	else:
 		get_parent().get_node("CameraIcon").visible=true
 		
-	if isOn == true:
-		get_tree().get_root().set_disable_input(false)
-	else:
-		get_tree().get_root().set_disable_input(true)
-
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed == true:
 			print("work")
 			get_parent().get_node("Control").visible=true
-			isOn = true
