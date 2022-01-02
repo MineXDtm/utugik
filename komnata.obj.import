@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/komnata.obj-5e6a3d9f6ec3244af09d6972f5c33d9b.mesh"
+
+[deps]
+
+files=[ "res://.import/komnata.obj-5e6a3d9f6ec3244af09d6972f5c33d9b.mesh" ]
+
+source_file="res://komnata.obj"
+dest_files=[ "res://.import/komnata.obj-5e6a3d9f6ec3244af09d6972f5c33d9b.mesh", "res://.import/komnata.obj-5e6a3d9f6ec3244af09d6972f5c33d9b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
