@@ -22,10 +22,9 @@ func _process(delta):
 		get_parent().get_node("CameraIcon").visible=true
 		
 	if isOn == true:
-		set_process_input(false)
+		get_tree().get_root().set_disable_input(false)
 	else:
-		set_process_input(true)
-
+		get_tree().get_root().set_disable_input(true)
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
