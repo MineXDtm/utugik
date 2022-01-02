@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Материал.material" type="Material" id=1]
 [ext_resource path="res://scenes/komnata.obj" type="ArrayMesh" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/01___Default.material" type="Material" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
 [ext_resource path="res://w.png" type="Texture" id=6]
+[ext_resource path="res://cameras.png" type="Texture" id=8]
 
 [sub_resource type="Environment" id=1]
 
@@ -57,17 +58,38 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.87228
 spot_range = 17.9986
 spot_angle = 82.9688
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="CameraIcon" type="MeshInstance" parent="."]
 transform = Transform( -1.21255, 0, -0.82101, 0, 2.12387, 0, 1.74372, 0, -0.570914, 4.33452, 1.65206, 5.20622 )
 mesh = SubResource( 2 )
 skeleton = NodePath("Area")
 material/0 = SubResource( 4 )
 
-[node name="Area" type="Area" parent="MeshInstance"]
+[node name="Area" type="Area" parent="CameraIcon"]
 transform = Transform( 1, 0, 0, 0, 1, 0, -3.55271e-15, 0, 1, 0.0371184, -0.00236088, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="CameraIcon/Area"]
 transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.0371192, 0, -0.00816202 )
 shape = SubResource( 3 )
 
-[connection signal="input_event" from="MeshInstance/Area" to="Camera" method="_on_Area_input_event"]
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camerasimg" type="TextureRect" parent="Control"]
+anchor_left = 0.107
+anchor_top = 0.202
+anchor_right = 0.52
+anchor_bottom = 0.73
+margin_left = 0.431992
+margin_top = -0.200005
+margin_right = -0.480042
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="input_event" from="CameraIcon/Area" to="Camera" method="_on_Area_input_event"]
