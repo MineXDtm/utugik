@@ -1,5 +1,7 @@
 extends Camera
 
+var isOn = false
+
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		rotation.y += 0.01
@@ -11,17 +13,23 @@ func _process(delta):
 	if rotation.y > -0.15:
 		rotation.y = -0.15
 	if rotation.y < -2.3:
-		get_parent().get_node("MeshInstance").visible=false
-		get_parent().get_node("MeshInstance/cameraswindow").visible=false
+		get_parent().get_node("CameraIcon").visible=false
+		get_parent().get_node("Control").visible=false
 	elif rotation.y > -2:
-		get_parent().get_node("MeshInstance").visible=false
-		get_parent().get_node("MeshInstance/cameraswindow").visible=false
+		get_parent().get_node("CameraIcon").visible=false
+		get_parent().get_node("Control").visible=false
 	else:
-		get_parent().get_node("MeshInstance").visible=true
+		get_parent().get_node("CameraIcon").visible=true
+		
+	if isOn == true:
+		set_process_input(false)
+	else:
+		set_process_input(true)
 
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed == true:
 			print("work")
-			get_parent().get_node("MeshInstance/cameraswindow").popup()
+			get_parent().get_node("Control").visible=true
+			isOn = true
