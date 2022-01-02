@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Материал.material" type="Material" id=1]
 [ext_resource path="res://komnata.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://crt_shader.shader" type="Shader" id=3]
 [ext_resource path="res://scenes/01___Default.material" type="Material" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
 [ext_resource path="res://w.png" type="Texture" id=6]
@@ -21,7 +22,15 @@ albedo_texture = ExtResource( 6 )
 extents = Vector3( 0.45353, 0.476357, 0.21957 )
 
 [sub_resource type="ViewportTexture" id=5]
-viewport_path = NodePath("Control/Viewport")
+viewport_path = NodePath("Control/Viewport2")
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+shader_param/crt_curve = 0.031
+shader_param/crt_scan_line_color = 0.0
+shader_param/aperture_grille_rate = 0.184
+shader_param/rf_switch_esque_blur = 1.0
+shader_param/white_noise_rate = 0.098
 
 [node name="main" type="Spatial"]
 
@@ -60,6 +69,14 @@ anchor_bottom = 1.0
 texture = SubResource( 5 )
 expand = true
 flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/Cam2"]
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
