@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/yutotbe.obj-6204b4a68fa48c38e2e84e82228e9c3a.mesh"
+
+[deps]
+
+files=[ "res://.import/yutotbe.obj-6204b4a68fa48c38e2e84e82228e9c3a.mesh" ]
+
+source_file="res://yutotbe.obj"
+dest_files=[ "res://.import/yutotbe.obj-6204b4a68fa48c38e2e84e82228e9c3a.mesh", "res://.import/yutotbe.obj-6204b4a68fa48c38e2e84e82228e9c3a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
