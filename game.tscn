@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Материал.material" type="Material" id=1]
 [ext_resource path="res://scenes/komnata.obj" type="ArrayMesh" id=2]
@@ -19,6 +19,9 @@ albedo_texture = ExtResource( 6 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.45353, 0.476357, 0.21957 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Control/Viewport")
 
 [node name="main" type="Spatial"]
 
@@ -91,5 +94,23 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cam2" type="TextureRect" parent="Control"]
+margin_left = 440.0
+margin_top = 137.0
+margin_right = 940.0
+margin_bottom = 428.0
+texture = SubResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Control"]
+size = Vector2( 500, 300 )
+
+[node name="Cam1" type="Camera" parent="Control/Viewport"]
+transform = Transform( -0.996716, 0, 0.0809818, 0, 1, 0, -0.0809818, 0, -0.996716, 0, 3.69556, -9.34539 )
+current = true
 
 [connection signal="input_event" from="CameraIcon/Area" to="Camera" method="_on_Area_input_event"]
